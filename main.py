@@ -1,14 +1,28 @@
-from graphics import Window, Point, Line
+from graphics import Window
+from cell import Cell
 
 def main():
     win = Window(800, 600)
-    test_lines(win)
+    test_draw(win)
     win.wait_for_close()
 
-def test_lines(win):
-    line_a = Line(Point(10,10),Point(300,432))
-    line_b = Line(Point(300,432),Point(50,50))
-    win.draw_line(line_a, "Red")
-    win.draw_line(line_b, "Black")
+def test_draw(win):
+    
+    c = Cell(win)
+    c.has_left_wall = False
+    c.draw(50, 50, 100, 100)
+
+    c = Cell(win)
+    c.has_right_wall = False
+    c.draw(125, 125, 200, 200)
+
+    c = Cell(win)
+    c.has_bottom_wall = False
+    c.draw(225, 225, 250, 250)
+
+    c = Cell(win)
+    c.has_top_wall = False
+    c.draw(300, 300, 500, 500)
+
 
 main()
